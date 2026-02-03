@@ -24,4 +24,9 @@
     <string name="fav">Marcar como Favorito</string>
     <string name="aceptar">Aceptar</string>
 
+    <string name="login">Iniciar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="contrasenia">Contraseña</string>
+
 </resources>
