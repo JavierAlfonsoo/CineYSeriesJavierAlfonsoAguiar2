@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
@@ -20,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText etCorreo, etPass;
     private Button btnLogin, btnRegister;
+    private Switch switchEsAdmin;
     private AppDatabase db;
 
     @Override
@@ -35,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
 
-        // Lógica LOGIN
         btnLogin.setOnClickListener(v -> {
             String correo = etCorreo.getText().toString();
             String pass = etPass.getText().toString();
@@ -53,17 +54,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Lógica REGISTRO (Simplificado: crea un usuario admin de prueba)
+        // REGISTRO
         btnRegister.setOnClickListener(v -> {
-            String correo = etCorreo.getText().toString();
-            String pass = etPass.getText().toString();
-
-            // Creamos usuario (Ej: Admin con teléfono para las pruebas del SMS)
-            Usuario nuevoUser = new Usuario("Javier", correo, pass, "666777888", true);
-            db.appDao().insertUser(nuevoUser);
-
-            lanzarNotificacionRegistro();
-            Toast.makeText(this, "Usuario Registrado!", Toast.LENGTH_SHORT).show();
+            // Navegar a la pantalla de registro
+            Intent intent = new Intent(LoginActivity.this, ActivityRegistro.class);
+            startActivity(intent);
         });
     }
 

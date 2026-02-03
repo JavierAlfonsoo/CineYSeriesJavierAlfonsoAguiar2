@@ -29,5 +29,13 @@
     <string name="correo">Correo electrónico</string>
     <string name="contrasenia">Contraseña</string>
     <string name="panelAdmin">Panel de admin</string>
+    <string name="isAdmin">¿Eres administrador?</string>
+
+    <string name="nuevaCuenta">Crear Cuenta Nueva</string>
+    <string name="nombreUsu">Nombre Completo</string>
+    <string name="correoUsu">Correo Electrónico</string>
+    <string name="tlfSMS">Teléfono (Para alertas SMS)</string>
+    <string name="guardarReg">Guardar Usuario"</string>
+
 
 </resources>

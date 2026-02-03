@@ -28,8 +28,8 @@
                 android:layout_gravity="end"
                 android:layout_marginEnd="8dp"
                 android:text="@string/panelAdmin"
-                android:textSize="11sp"/>
-                <!--android:visibility="gone" />-->
+                android:textSize="11sp"
+                android:visibility="gone" />
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.recyclerview.widget.RecyclerView
