@@ -28,5 +28,6 @@
     <string name="registrarse">Registrarse</string>
     <string name="correo">Correo electrónico</string>
     <string name="contrasenia">Contraseña</string>
+    <string name="panelAdmin">Panel de admin</string>
 
 </resources>

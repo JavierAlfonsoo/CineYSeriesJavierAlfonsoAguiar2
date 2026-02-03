@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -27,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerPelis;
     ArrayList<Pelicula> pelisLista;
     private FloatingActionButton fab;
+    private Button botonAdmin;
 
     // Constante para el código de solicitud
-    private static final int CODIGO_NUEVA_PELICULA = 100;
+
     private PeliculaAdapter adapter;
 
     @Override
@@ -38,10 +41,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerPelis = findViewById(R.id.rvPelisSeries);
+        botonAdmin = findViewById(R.id.btnAdminPanel);
         recyclerPelis.setLayoutManager(new LinearLayoutManager(this));
         fab = findViewById(R.id.floatingActionButton);
 
         pelisLista = new ArrayList<Pelicula>();
+
+        boolean esAdmin = getIntent().getBooleanExtra("IS_ADMIN", false);
+        if (esAdmin) {
+            // si el usuario cumple con esadmin le mostramos el boton
+            botonAdmin.setVisibility(View.VISIBLE);
+
+            botonAdmin.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, AdminActivity.class));
+            });
+        }
 
         // Añadimos peliculas de prueba al recycler
         pelisLista.add(new Pelicula(R.drawable.snatch, "Guy Ritchie", "Snatch: cerdos y diamantes", "Jason Statan",
@@ -83,25 +97,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Configuracion crear nueva pelicula
-        fab.setOnClickListener(v -> {
-            Intent intent = new Intent(this, NuevaPeliculaActivity.class);
-            startActivityForResult(intent, CODIGO_NUEVA_PELICULA);
-        });
+        //fab.setOnClickListener(v -> {
+        //    Intent intent = new Intent(this, NuevaPeliculaActivity.class);
+        //    startActivityForResult(intent, CODIGO_NUEVA_PELICULA);
+        //});
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == CODIGO_NUEVA_PELICULA && resultCode == RESULT_OK) {
-            Pelicula nuevaPelicula = (Pelicula) data.getSerializableExtra("nueva_pelicula");
-            if (nuevaPelicula != null) {
-                pelisLista.add(nuevaPelicula);
-                adapter.notifyDataSetChanged();
-                Toast.makeText(this, "Película añadida: " + nuevaPelicula.getNombre(), Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 
     // inflater para el menu de opciones
     @Override

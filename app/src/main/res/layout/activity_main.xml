@@ -19,7 +19,18 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:title="@string/titulo"
-            android:titleTextColor="@android:color/white"/>
+            android:titleTextColor="@android:color/white">
+
+            <Button
+                android:id="@+id/btnAdminPanel"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"
+                android:text="@string/panelAdmin"
+                android:textSize="11sp"/>
+                <!--android:visibility="gone" />-->
+        </androidx.appcompat.widget.Toolbar>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPelisSeries"
@@ -27,6 +38,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             />
+
         <!--El boton para añadir atributos solo se puede crear dentro de un constraintLayout-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutAnade"
