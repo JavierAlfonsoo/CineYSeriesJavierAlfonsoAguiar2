@@ -1,4 +1,4 @@
-package com.example.cineyseriesjavieralfonsoaguiar2;
+package com.example.cineyseriesjavieralfonsoaguiar2.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.cineyseriesjavieralfonsoaguiar2.R;
 
 public class NuevaPeliculaActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.cineyseriesjavieralfonsoaguiar2;
+package com.example.cineyseriesjavieralfonsoaguiar2.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cineyseriesjavieralfonsoaguiar2.PeliculaAdapter;
+import com.example.cineyseriesjavieralfonsoaguiar2.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 

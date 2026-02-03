@@ -1,9 +1,11 @@
-package com.example.cineyseriesjavieralfonsoaguiar2;
+package com.example.cineyseriesjavieralfonsoaguiar2.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.cineyseriesjavieralfonsoaguiar2.R;
 
 public class DetallesPeliActivity extends AppCompatActivity{
     ImageView imgContactDetail;

@@ -1,8 +1,10 @@
-package com.example.cineyseriesjavieralfonsoaguiar2;
+package com.example.cineyseriesjavieralfonsoaguiar2.ui;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.cineyseriesjavieralfonsoaguiar2.R;
 
 public class AcercaDeActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.cineyseriesjavieralfonsoaguiar2;
+package com.example.cineyseriesjavieralfonsoaguiar2.ui;
 
 
 import android.app.NotificationChannel;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
+import com.example.cineyseriesjavieralfonsoaguiar2.R;
 import com.example.cineyseriesjavieralfonsoaguiar2.bd.AppDatabase;
 import com.example.cineyseriesjavieralfonsoaguiar2.bd.Usuario;
 

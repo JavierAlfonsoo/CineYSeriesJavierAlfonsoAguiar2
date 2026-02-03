@@ -10,20 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.cineyseriesjavieralfonsoaguiar2.DetallesPeliActivity;
-import com.example.cineyseriesjavieralfonsoaguiar2.R;
+import com.example.cineyseriesjavieralfonsoaguiar2.ui.DetallesPeliActivity;
+import com.example.cineyseriesjavieralfonsoaguiar2.ui.Pelicula;
 
 import java.util.ArrayList;
 
 public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHolder> {
 
-    private ArrayList<com.example.cineyseriesjavieralfonsoaguiar2.Pelicula> listaPelis;
+    private ArrayList<Pelicula> listaPelis;
     private Context context;
 
     //Constructor del adaptador
-    public PeliculaAdapter (Context context, ArrayList<com.example.cineyseriesjavieralfonsoaguiar2.Pelicula> listaPelis){
+    public PeliculaAdapter (Context context, ArrayList<Pelicula> listaPelis){
         this.context = context;
         this.listaPelis = listaPelis;
     }
@@ -49,7 +47,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(PeliculaAdapter.ViewHolder holder, int position) {
-        com.example.cineyseriesjavieralfonsoaguiar2.Pelicula peli = listaPelis.get(position);
+        Pelicula peli = listaPelis.get(position);
         holder.imgPeli.setImageResource(peli.getImagenId());
         holder.txtNombre.setText(peli.getNombre());
         holder.txtGenero.setText(peli.getGenero());

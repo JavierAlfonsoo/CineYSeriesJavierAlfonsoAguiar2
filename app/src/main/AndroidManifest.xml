@@ -14,14 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CineYSeriesJavierAlfonsoAguiar2">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"/>
-        <activity android:name=".AcercaDeActivity"/>
-        <activity android:name=".DetallesPeliActivity"/>
-        <activity android:name=".AyudaActivity"/>
-        <activity android:name=".NuevaPeliculaActivity"/>
+        <activity android:name=".ui.AcercaDeActivity"/>
+        <activity android:name=".ui.DetallesPeliActivity"/>
+        <activity android:name=".ui.AyudaActivity"/>
+        <activity android:name=".ui.NuevaPeliculaActivity"/>
+        <activity android:name=".ui.AdminActivity"/>
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
