@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">CineYSeriesJavierAlfonsoAguiar2</string>
+    <string name="titulo">Series y Películas</string>
+    <string name="acercaDe">Acerca de...</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="recomendaciones">Recomendaciones</string>
+    <string name="detalles">Detalles</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="salir">Salir</string>
+    <string name="acercaDeTexto">Aplicacion creada por Javier Alfonso Aguiar</string>
+    <string name="ayudaTexto1">Pulsa una película para ver sus detalles</string>
+    <string name="ayudaTexto2">Manten pulsada una película para eliminarlo</string>
+
+    <string name="nuevaPelicula">Nueva película</string>
+    <string name="nombrePelicula">Nombre de la pelicula</string>
+    <string name="director">Director</string>
+    <string name="protagonista">Protagonista</string>
+    <string name="antagonista">Antagonista</string>
+    <string name="genero">Género</string>
+    <string name="fecha">Fecha Estreno (DD/MM/AAAA)</string>
+    <string name="duracion">Duración (minutos)</string>
+    <string name="nota">Nota (1-10)</string>
+    <string name="visto">Ya la he visto</string>
+    <string name="fav">Marcar como Favorito</string>
+    <string name="aceptar">Aceptar</string>
+
+</resources>
