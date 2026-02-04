@@ -38,4 +38,15 @@
     <string name="guardarReg">Guardar Usuario"</string>
 
 
+    <string-array name="orden_opciones">
+        <item>Título</item>
+        <item>Fecha</item>
+        <item>Puntuación</item>
+    </string-array>
+
+    <string-array name="orden_valores">
+        <item>titulo</item>
+        <item>fecha</item>
+        <item>rating</item>
+    </string-array>
 </resources>

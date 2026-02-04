@@ -1,0 +1,22 @@
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.PreferenceCategory app:title="Apariencia">
+        <androidx.preference.SwitchPreferenceCompat
+            app:key="modo_oscuro"
+            app:title="Modo Oscuro"
+            app:summary="Cambia la aplicación a colores oscuros"
+            app:defaultValue="false" />
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory app:title="Contenido">
+        <androidx.preference.ListPreference
+            app:key="ordenar_por"
+            app:title="Ordenar lista de películas"
+            app:summary="Elige cómo ver tus películas"
+            app:entries="@array/orden_opciones"
+            app:entryValues="@array/orden_valores"
+            app:defaultValue="titulo"
+            app:useSimpleSummaryProvider="true" />
+    </androidx.preference.PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

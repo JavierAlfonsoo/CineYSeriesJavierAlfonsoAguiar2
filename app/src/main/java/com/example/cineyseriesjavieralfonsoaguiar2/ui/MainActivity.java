@@ -111,14 +111,17 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // Funcionalidad del menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.opcion_salir) {
-            finish();
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            // AQUÍ ABRIMOS LA ACTIVIDAD QUE ACABAMOS DE CREAR
+            Intent intent = new Intent(this, ActivityPreferencias.class);
+            startActivity(intent);
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
-
 }

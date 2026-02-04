@@ -9,6 +9,13 @@ public class Pelicula {
     public int id;
     public String titulo;
     public String sinopsis;
-    public String imagenUrl;
+    public String director;
+    public String protagonista;
+    public String antagona;
+    public String genero;
+    public String fechaEstreno;
+    public int duracion;
+    public boolean visto;
+    public boolean favorito;
     public float rating;
 }

@@ -37,6 +37,7 @@ dependencies {
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.preference:preference-ktx:1.2.1")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
