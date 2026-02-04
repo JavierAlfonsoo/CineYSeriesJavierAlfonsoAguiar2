@@ -1,6 +1,7 @@
 package com.example.cineyseriesjavieralfonsoaguiar2.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,8 +11,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        aplicarModoOscuro();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -103,6 +107,30 @@ public class MainActivity extends AppCompatActivity {
         //});
     }
 
+    private void aplicarModoOscuro() {
+
+        SharedPreferences prefs =
+                PreferenceManager.getDefaultSharedPreferences(this);
+
+        boolean darkMode = prefs.getBoolean("pref_dark_mode", false);
+
+        if (darkMode) {
+            AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_YES
+            );
+        } else {
+            AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_NO
+            );
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        aplicarModoOscuro();
+        adapter.notifyDataSetChanged();
+    }
 
     // inflater para el menu de opciones
     @Override
