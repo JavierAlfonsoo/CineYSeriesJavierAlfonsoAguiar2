@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">CineYSeriesJavierAlfonsoAguiar2</string>
+    <string name="titulo">Series and Films</string>
+    <string name="acercaDe">About...</string>
+    <string name="ayuda">Help</string>
+    <string name="recomendaciones">Recomendations</string>
+    <string name="detalles">Details</string>
+    <string name="eliminar">Delete</string>
+    <string name="salir">Exit</string>
+    <string name="acercaDeTexto">Application created by Javier Alfonso Aguiar</string>
+    <string name="ayudaTexto1">Press a movie to see its details</string>
+    <string name="ayudaTexto2">Hold a movie to delete it</string>
+
+    <string name="nuevaPelicula">New film</string>
+    <string name="nombrePelicula">Film name</string>
+    <string name="director">Director</string>
+    <string name="protagonista">Main actor</string>
+    <string name="antagonista">Antagonist</string>
+    <string name="genero">Genre</string>
+    <string name="fecha">Release date (DD/MM/AAAA)</string>
+    <string name="duracion">Duration (minutos)</string>
+    <string name="nota">Rating (1-10)</string>
+    <string name="visto">Already watched</string>
+    <string name="fav">Mark as favorite</string>
+    <string name="aceptar">Accept</string>
+
+    <string name="login">Log in</string>
+    <string name="registrarse">Register</string>
+    <string name="correo">Email</string>
+    <string name="contrasenia">Password</string>
+    <string name="panelAdmin">Admin panel</string>
+    <string name="isAdmin">¿Are you an administrator?</string>
+
+    <string name="nuevaCuenta">Create new account</string>
+    <string name="nombreUsu">Full name</string>
+    <string name="correoUsu">Email</string>
+    <string name="tlfSMS">Phone number (for SMS alerts)</string>
+    <string name="guardarReg">Save User"</string>
+
+
+    <string-array name="orden_opciones">
+        <item>Título</item>
+        <item>Fecha</item>
+        <item>Puntuación</item>
+    </string-array>
+
+    <string-array name="orden_valores">
+        <item>titulo</item>
+        <item>fecha</item>
+        <item>rating</item>
+    </string-array>
+</resources>
