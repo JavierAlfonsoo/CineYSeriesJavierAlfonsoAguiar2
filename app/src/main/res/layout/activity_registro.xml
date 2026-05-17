@@ -34,7 +34,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/correoUsu"
+            android:autofillHints="emailAddress"
+            android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
+            android:maxLines="1"
             android:layout_marginBottom="16dp" />
 
         <EditText
@@ -50,8 +53,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tlfSMS"
+            android:autofillHints="phone"
+            android:imeOptions="actionNext"
             android:inputType="phone"
+            android:maxLines="1"
             android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnImportarContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/importar_contacto"
+            android:layout_marginBottom="16dp" />
 
         <Switch
             android:id="@+id/switchAdminReg"

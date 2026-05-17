@@ -1,16 +1,16 @@
 package com.example.cineyseriesjavieralfonsoaguiar2.ui;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cineyseriesjavieralfonsoaguiar2.R;
 
-public class ActivityPreferencias extends AppCompatActivity {
+public class ActivityPreferencias extends BaseDrawerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        setDrawerTitle(R.string.ajustes);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager()
@@ -18,18 +18,5 @@ public class ActivityPreferencias extends AppCompatActivity {
                     .replace(R.id.settings_container, new ConfigFragment())
                     .commit();
         }
-
-        // flecha atras en la barra superior
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Preferencias");
-        }
-    }
-
-    // Para que funcione la flecha de atrás
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
     }
 }

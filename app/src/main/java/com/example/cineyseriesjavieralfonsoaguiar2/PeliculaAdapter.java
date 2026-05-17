@@ -1,87 +1,113 @@
 package com.example.cineyseriesjavieralfonsoaguiar2;
 
-import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.cineyseriesjavieralfonsoaguiar2.bd.Pelicula;
 import com.example.cineyseriesjavieralfonsoaguiar2.ui.DetallesPeliActivity;
-import com.example.cineyseriesjavieralfonsoaguiar2.ui.Pelicula;
 
 import java.util.ArrayList;
 
 public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHolder> {
 
-    private ArrayList<Pelicula> listaPelis;
-    private Context context;
+    private final ArrayList<Pelicula> listaPelis;
+    private final Context context;
+    private final OnPeliculaActionListener listener;
 
-    //Constructor del adaptador
-    public PeliculaAdapter (Context context, ArrayList<Pelicula> listaPelis){
-        this.context = context;
-        this.listaPelis = listaPelis;
+    public interface OnPeliculaActionListener {
+        void onDelete(Pelicula pelicula);
+        void onFavorite(Pelicula pelicula);
     }
 
-    //Creamos el viewholder para las tarjetas del main
+    public PeliculaAdapter(Context context, ArrayList<Pelicula> listaPelis, OnPeliculaActionListener listener) {
+        this.context = context;
+        this.listaPelis = listaPelis;
+        this.listener = listener;
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPeli;
-        TextView txtNombre, txtGenero;
+        TextView txtNombre, txtGenero, txtDuracion;
 
         public ViewHolder(View itemView) {
             super(itemView);
             imgPeli = itemView.findViewById(R.id.imgPeliSerie);
             txtNombre = itemView.findViewById(R.id.tvNombre);
             txtGenero = itemView.findViewById(R.id.tvGenero);
+            txtDuracion = itemView.findViewById(R.id.tvDuracion);
         }
     }
 
     @Override
-    public PeliculaAdapter.ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.layout_card, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(PeliculaAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         Pelicula peli = listaPelis.get(position);
-        holder.imgPeli.setImageResource(peli.getImagenId());
-        holder.txtNombre.setText(peli.getNombre());
-        holder.txtGenero.setText(peli.getGenero());
+        if (peli.imagenUri != null && !peli.imagenUri.isEmpty()) {
+            holder.imgPeli.setImageURI(Uri.parse(peli.imagenUri));
+        } else {
+            holder.imgPeli.setImageResource(peli.imagenResId);
+        }
+        holder.txtNombre.setText(peli.titulo);
+        holder.txtGenero.setText(peli.genero + " - " + peli.tipo);
+        holder.txtDuracion.setText(peli.duracion + " min - " + peli.rating + "/5");
 
-        //Con clic corto muestro el detalle de la película
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, DetallesPeliActivity.class);
-                intent.putExtra("imageId", peli.getImagenId());
-                intent.putExtra("director", peli.getDirector());
-                intent.putExtra("nombre", peli.getNombre());
-                intent.putExtra("protagonista", peli.getProtagonista());
-                intent.putExtra("antagonista", peli.getAntagonista());
-                intent.putExtra("genero", peli.getGenero());
-                intent.putExtra("fecha", peli.getFechaEstreno());
-                intent.putExtra("duracion", peli.getDuracionMin());
-                intent.putExtra("fav?", peli.isFavorito());
-                intent.putExtra("vista?", peli.isVista());
-                intent.putExtra("nota", peli.getNota());
-                context.startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DetallesPeliActivity.class);
+            intent.putExtra("imageId", peli.imagenResId);
+            intent.putExtra("imageUri", peli.imagenUri);
+            intent.putExtra("director", peli.director);
+            intent.putExtra("nombre", peli.titulo);
+            intent.putExtra("protagonista", peli.protagonista);
+            intent.putExtra("antagonista", peli.antagonista);
+            intent.putExtra("genero", peli.genero);
+            intent.putExtra("tipo", peli.tipo);
+            intent.putExtra("fecha", peli.fechaEstreno);
+            intent.putExtra("hora", peli.horaRecordatorio);
+            intent.putExtra("duracion", peli.duracion);
+            intent.putExtra("fav?", peli.favorito);
+            intent.putExtra("vista?", peli.visto);
+            intent.putExtra("nota", peli.rating);
+            intent.putExtra("sinopsis", peli.sinopsis);
+            context.startActivity(intent);
         });
 
-        //Con el clic largo borro (de momento)
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                listaPelis.remove(position);
-                notifyItemRemoved(position);
-                Toast.makeText(context, peli.getNombre() + " ha sido eliminada", Toast.LENGTH_SHORT).show();
-                return true;
-            }
+        holder.itemView.setOnLongClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(context, v);
+            popupMenu.getMenu().add(0, 1, 0, R.string.marcar_favorita);
+            popupMenu.getMenu().add(0, 2, 1, R.string.eliminar);
+            popupMenu.setOnMenuItemClickListener(item -> gestionarAccionContextual(item, peli));
+            popupMenu.show();
+            return true;
         });
+    }
+
+    private boolean gestionarAccionContextual(MenuItem item, Pelicula peli) {
+        if (item.getItemId() == 1) {
+            listener.onFavorite(peli);
+            Toast.makeText(context, R.string.favorita_actualizada, Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (item.getItemId() == 2) {
+            listener.onDelete(peli);
+            return true;
+        }
+        return false;
     }
 
     @Override

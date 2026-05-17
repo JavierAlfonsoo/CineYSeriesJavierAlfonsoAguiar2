@@ -1,52 +1,83 @@
 <resources>
     <string name="app_name">CineYSeriesJavierAlfonsoAguiar2</string>
-    <string name="titulo">Series and Films</string>
+    <string name="titulo">Series and Movies</string>
     <string name="acercaDe">About...</string>
     <string name="ayuda">Help</string>
-    <string name="recomendaciones">Recomendations</string>
+    <string name="recomendaciones">Recommendations</string>
     <string name="detalles">Details</string>
     <string name="eliminar">Delete</string>
     <string name="salir">Exit</string>
+    <string name="volver">Back</string>
+    <string name="ajustes">Settings</string>
+    <string name="mapa">Premiere map</string>
+    <string name="audio_guia">Audio guide</string>
+    <string name="ver_video">Watch intro video</string>
     <string name="acercaDeTexto">Application created by Javier Alfonso Aguiar</string>
-    <string name="ayudaTexto1">Press a movie to see its details</string>
-    <string name="ayudaTexto2">Hold a movie to delete it</string>
-
-    <string name="nuevaPelicula">New film</string>
-    <string name="nombrePelicula">Film name</string>
+    <string name="ayudaTexto1">Tap a movie or series to view details.</string>
+    <string name="ayudaTexto2">Long press an item to open contextual actions.</string>
+    <string name="nuevaPelicula">New movie or series</string>
+    <string name="nombrePelicula">Name</string>
     <string name="director">Director</string>
-    <string name="protagonista">Main actor</string>
+    <string name="protagonista">Main character</string>
     <string name="antagonista">Antagonist</string>
     <string name="genero">Genre</string>
-    <string name="fecha">Release date (DD/MM/AAAA)</string>
-    <string name="duracion">Duration (minutos)</string>
-    <string name="nota">Rating (1-10)</string>
+    <string name="fecha">Release date</string>
+    <string name="hora_recordatorio">Reminder time</string>
+    <string name="duracion">Duration (minutes)</string>
+    <string name="sinopsis">Synopsis</string>
+    <string name="foto_contenido">Content photo</string>
+    <string name="seleccionar_imagen">Select photo</string>
+    <string name="nota">Rating</string>
     <string name="visto">Already watched</string>
     <string name="fav">Mark as favorite</string>
     <string name="aceptar">Accept</string>
-
+    <string name="rellena_campos">Please fill in all required fields</string>
+    <string name="correo_invalido">Enter a valid email: text@text.com or text@text.es</string>
+    <string name="duracion_invalida">Duration must be a number</string>
+    <string name="imagen_no_disponible">The selected image could not be opened</string>
+    <string name="pelicula_guardada">Content saved</string>
+    <string name="pelicula_eliminada">%1$s has been deleted</string>
+    <string name="marcar_favorita">Toggle favorite</string>
+    <string name="favorita_actualizada">Favorite updated</string>
+    <string name="confirmar_borrado">Confirm delete</string>
+    <string name="confirmar_borrado_mensaje">Do you want to delete %1$s?</string>
     <string name="login">Log in</string>
     <string name="registrarse">Register</string>
     <string name="correo">Email</string>
     <string name="contrasenia">Password</string>
     <string name="panelAdmin">Admin panel</string>
-    <string name="isAdmin">¿Are you an administrator?</string>
-
+    <string name="isAdmin">Are you an administrator?</string>
+    <string name="importar_contacto">Import contact</string>
     <string name="nuevaCuenta">Create new account</string>
     <string name="nombreUsu">Full name</string>
     <string name="correoUsu">Email</string>
-    <string name="tlfSMS">Phone number (for SMS alerts)</string>
-    <string name="guardarReg">Save User"</string>
-
-
-    <string-array name="orden_opciones">
-        <item>Título</item>
-        <item>Fecha</item>
-        <item>Puntuación</item>
-    </string-array>
-
-    <string-array name="orden_valores">
-        <item>titulo</item>
-        <item>fecha</item>
-        <item>rating</item>
-    </string-array>
+    <string name="tlfSMS">Phone for SMS alerts</string>
+    <string name="guardarReg">Save user</string>
+    <string name="detalle_director">Directed by: %1$s</string>
+    <string name="detalle_protagonista">Main character: %1$s</string>
+    <string name="detalle_antagonista">Antagonist: %1$s</string>
+    <string name="detalle_genero">Genre: %1$s</string>
+    <string name="detalle_tipo">Type: %1$s</string>
+    <string name="detalle_fecha">Release date: %1$s</string>
+    <string name="detalle_hora">Reminder: %1$s</string>
+    <string name="detalle_duracion">Duration: %1$d minutes</string>
+    <string name="detalle_favorita_si">It is in your favorites</string>
+    <string name="detalle_favorita_no">It is not in your favorites</string>
+    <string name="detalle_vista_si">You have watched this content</string>
+    <string name="detalle_vista_no">You have not watched this content</string>
+    <string name="detalle_nota">Rating: %1$.1f/5</string>
+    <string name="detalle_sinopsis">Synopsis: %1$s</string>
+    <string name="mapa_titulo">Filming and premiere map</string>
+    <string name="mapa_descripcion">Madrid: recommended premiere\nBarcelona: film cycle\nValencia: cinema route</string>
+    <string name="audio_descripcion">Quick guide: save movies and series, mark favorites, and check details from the main list.</string>
+    <string name="reproducir">Play</string>
+    <string name="pausar">Pause</string>
+    <string name="detener">Stop</string>
+    <string name="recomendaciones_titulo">Recommendations</string>
+    <string name="recomendaciones_texto">Favorites and pending titles are used to prepare recommendations.</string>
+    <string-array name="tipo_contenido"><item>Movie</item><item>Series</item></string-array>
+    <string-array name="orden_opciones"><item>All</item><item>Movies</item><item>Series</item></string-array>
+    <string-array name="orden_valores"><item>todos</item><item>pelicula</item><item>serie</item></string-array>
+    <string-array name="tema_opciones"><item>System</item><item>Cinema</item><item>Series</item></string-array>
+    <string-array name="tema_valores"><item>sistema</item><item>cine</item><item>series</item></string-array>
 </resources>

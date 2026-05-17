@@ -20,23 +20,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cineyseriesjavieralfonsoaguiar2.PeliculaAdapter;
 import com.example.cineyseriesjavieralfonsoaguiar2.R;
+import com.example.cineyseriesjavieralfonsoaguiar2.bd.AppDatabase;
+import com.example.cineyseriesjavieralfonsoaguiar2.bd.Pelicula;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ConfirmDeleteDialogFragment.ConfirmDeleteListener {
+
+    private static final int CODIGO_NUEVA_PELICULA = 10;
 
     private DrawerLayout drawerLayout;
     private NavigationView navView;
     private RecyclerView recyclerPelis;
-    ArrayList<Pelicula> pelisLista;
-    private FloatingActionButton fab;
-    private Button botonAdmin;
-
-    // Constante para el código de solicitud
-
+    private ArrayList<Pelicula> pelisLista;
     private PeliculaAdapter adapter;
+    private AppDatabase db;
+    private Pelicula peliculaPendienteBorrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,95 +45,127 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        db = AppDatabase.getInstance(this);
         recyclerPelis = findViewById(R.id.rvPelisSeries);
-        botonAdmin = findViewById(R.id.btnAdminPanel);
-        recyclerPelis.setLayoutManager(new LinearLayoutManager(this));
-        fab = findViewById(R.id.floatingActionButton);
+        Button botonAdmin = findViewById(R.id.btnAdminPanel);
+        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
 
-        pelisLista = new ArrayList<Pelicula>();
+        recyclerPelis.setLayoutManager(new LinearLayoutManager(this));
+        pelisLista = new ArrayList<>();
+        adapter = new PeliculaAdapter(this, pelisLista, new PeliculaAdapter.OnPeliculaActionListener() {
+            @Override
+            public void onDelete(Pelicula pelicula) {
+                peliculaPendienteBorrar = pelicula;
+                ConfirmDeleteDialogFragment.newInstance(pelicula.titulo)
+                        .show(getSupportFragmentManager(), "confirm_delete");
+            }
+
+            @Override
+            public void onFavorite(Pelicula pelicula) {
+                pelicula.favorito = !pelicula.favorito;
+                db.appDao().updatePelicula(pelicula);
+                cargarPeliculas();
+            }
+        });
+        recyclerPelis.setAdapter(adapter);
 
         boolean esAdmin = getIntent().getBooleanExtra("IS_ADMIN", false);
         if (esAdmin) {
-            // si el usuario cumple con esadmin le mostramos el boton
             botonAdmin.setVisibility(View.VISIBLE);
-
-            botonAdmin.setOnClickListener(v -> {
-                startActivity(new Intent(MainActivity.this, AdminActivity.class));
-            });
+            botonAdmin.setOnClickListener(v -> startActivity(new Intent(this, AdminActivity.class)));
         }
 
-        // Añadimos peliculas de prueba al recycler
-        pelisLista.add(new Pelicula(R.drawable.snatch, "Guy Ritchie", "Snatch: cerdos y diamantes", "Jason Statan",
-                "Alan Ford", "Comedia", "04/11/2000", 99, true, true, 10));
-        pelisLista.add(new Pelicula(R.drawable.eljuego, "David Fincher", "El juego", "Michael Douglas", "Sean Penn",
-                "Suspense", "12/9/1997", 128, false, false, 9));
-        adapter = new PeliculaAdapter(this, pelisLista);
-        recyclerPelis.setAdapter(adapter);
-
-        // Pongo titulo a la toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle(R.string.titulo);
 
-        // Asigno el drawerLayout y el navigationView
         drawerLayout = findViewById(R.id.drawer_layout);
         navView = findViewById(R.id.nav_view);
 
-        // Configuro el boton de las tres lineas
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name,
-                R.string.app_name);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
+                R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        // Gestiono la navegación lateral
         navView.setNavigationItemSelectedListener(item -> {
-            final int id = item.getItemId();
+            int id = item.getItemId();
             if (id == R.id.nav_recomendaciones) {
-                Toast.makeText(this, "Seleccionaste recomendaciones", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, RecomendacionesActivity.class));
             } else if (id == R.id.nav_ayuda) {
-                Intent intent = new Intent(this, AyudaActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(this, AyudaActivity.class));
             } else if (id == R.id.nav_acerca) {
-                Intent intent = new Intent(this, AcercaDeActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(this, AcercaDeActivity.class));
+            } else if (id == R.id.nav_mapa) {
+                startActivity(new Intent(this, MapaActivity.class));
+            } else if (id == R.id.nav_volver) {
+                finish();
             }
             drawerLayout.closeDrawers();
             return true;
         });
 
-        // Configuracion crear nueva pelicula
-        //fab.setOnClickListener(v -> {
-        //    Intent intent = new Intent(this, NuevaPeliculaActivity.class);
-        //    startActivityForResult(intent, CODIGO_NUEVA_PELICULA);
-        //});
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(this, NuevaPeliculaActivity.class);
+            startActivityForResult(intent, CODIGO_NUEVA_PELICULA);
+        });
+
+        cargarPeliculas();
+        iniciarServicioBateria();
+    }
+
+    private void cargarPeliculas() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String filtro = prefs.getString("ordenar_por", "todos");
+        pelisLista.clear();
+        if ("pelicula".equals(filtro) || "serie".equals(filtro)) {
+            String tipo = "pelicula".equals(filtro) ? "Película" : "Serie";
+            pelisLista.addAll(db.appDao().getPeliculasByTipo(tipo));
+        } else {
+            pelisLista.addAll(db.appDao().getAllPeliculas());
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    private void iniciarServicioBateria() {
+        Intent intent = new Intent(this, BatterySmsService.class);
+        startService(intent);
     }
 
     private void aplicarModoOscuro() {
-
-        SharedPreferences prefs =
-                PreferenceManager.getDefaultSharedPreferences(this);
-
-        boolean darkMode = prefs.getBoolean("pref_dark_mode", false);
-
-        if (darkMode) {
-            AppCompatDelegate.setDefaultNightMode(
-                    AppCompatDelegate.MODE_NIGHT_YES
-            );
-        } else {
-            AppCompatDelegate.setDefaultNightMode(
-                    AppCompatDelegate.MODE_NIGHT_NO
-            );
-        }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean darkMode = prefs.getBoolean("modo_oscuro", false);
+        AppCompatDelegate.setDefaultNightMode(darkMode
+                ? AppCompatDelegate.MODE_NIGHT_YES
+                : AppCompatDelegate.MODE_NIGHT_NO);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         aplicarModoOscuro();
-        adapter.notifyDataSetChanged();
+        cargarPeliculas();
     }
 
-    // inflater para el menu de opciones
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CODIGO_NUEVA_PELICULA && resultCode == RESULT_OK) {
+            cargarPeliculas();
+            Toast.makeText(this, R.string.pelicula_guardada, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onDeleteConfirmed() {
+        if (peliculaPendienteBorrar != null) {
+            db.appDao().deletePelicula(peliculaPendienteBorrar);
+            Toast.makeText(this, getString(R.string.pelicula_eliminada, peliculaPendienteBorrar.titulo),
+                    Toast.LENGTH_SHORT).show();
+            peliculaPendienteBorrar = null;
+            cargarPeliculas();
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_opciones, menu);
@@ -142,14 +175,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.action_settings) {
-            // AQUÍ ABRIMOS LA ACTIVIDAD QUE ACABAMOS DE CREAR
-            Intent intent = new Intent(this, ActivityPreferencias.class);
-            startActivity(intent);
+            startActivity(new Intent(this, ActivityPreferencias.class));
             return true;
         }
-
+        if (id == R.id.action_audio) {
+            startActivity(new Intent(this, AudioGuideActivity.class));
+            return true;
+        }
+        if (id == R.id.opcion_salir) {
+            finish();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

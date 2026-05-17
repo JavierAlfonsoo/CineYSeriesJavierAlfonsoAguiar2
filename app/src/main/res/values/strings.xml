@@ -7,46 +7,106 @@
     <string name="detalles">Detalles</string>
     <string name="eliminar">Eliminar</string>
     <string name="salir">Salir</string>
-    <string name="acercaDeTexto">Aplicacion creada por Javier Alfonso Aguiar</string>
-    <string name="ayudaTexto1">Pulsa una película para ver sus detalles</string>
-    <string name="ayudaTexto2">Manten pulsada una película para eliminarlo</string>
+    <string name="volver">Volver</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="mapa">Mapa de estrenos</string>
+    <string name="audio_guia">Guía de audio</string>
+    <string name="ver_video">Ver vídeo presentación</string>
+    <string name="acercaDeTexto">Aplicación creada por Javier Alfonso Aguiar</string>
+    <string name="ayudaTexto1">Pulsa una película o serie para ver sus detalles.</string>
+    <string name="ayudaTexto2">Mantén pulsado un elemento para abrir acciones contextuales.</string>
 
-    <string name="nuevaPelicula">Nueva película</string>
-    <string name="nombrePelicula">Nombre de la pelicula</string>
+    <string name="nuevaPelicula">Nueva película o serie</string>
+    <string name="nombrePelicula">Nombre</string>
     <string name="director">Director</string>
     <string name="protagonista">Protagonista</string>
     <string name="antagonista">Antagonista</string>
     <string name="genero">Género</string>
-    <string name="fecha">Fecha Estreno (DD/MM/AAAA)</string>
+    <string name="fecha">Fecha de estreno</string>
+    <string name="hora_recordatorio">Hora de recordatorio</string>
     <string name="duracion">Duración (minutos)</string>
-    <string name="nota">Nota (1-10)</string>
+    <string name="sinopsis">Sinopsis</string>
+    <string name="foto_contenido">Foto del contenido</string>
+    <string name="seleccionar_imagen">Seleccionar foto</string>
+    <string name="nota">Nota</string>
     <string name="visto">Ya la he visto</string>
-    <string name="fav">Marcar como Favorito</string>
+    <string name="fav">Marcar como favorita</string>
     <string name="aceptar">Aceptar</string>
+    <string name="rellena_campos">Por favor, rellena todos los campos obligatorios</string>
+    <string name="correo_invalido">Introduce un correo válido: texto@texto.com o texto@texto.es</string>
+    <string name="duracion_invalida">La duración debe ser un número</string>
+    <string name="imagen_no_disponible">No se pudo abrir la imagen seleccionada</string>
+    <string name="pelicula_guardada">Contenido guardado</string>
+    <string name="pelicula_eliminada">%1$s ha sido eliminada</string>
+    <string name="marcar_favorita">Cambiar favorito</string>
+    <string name="favorita_actualizada">Favorito actualizado</string>
+    <string name="confirmar_borrado">Confirmar borrado</string>
+    <string name="confirmar_borrado_mensaje">¿Quieres eliminar %1$s?</string>
 
-    <string name="login">Iniciar Sesión</string>
+    <string name="login">Iniciar sesión</string>
     <string name="registrarse">Registrarse</string>
     <string name="correo">Correo electrónico</string>
     <string name="contrasenia">Contraseña</string>
-    <string name="panelAdmin">Panel de admin</string>
+    <string name="panelAdmin">Panel admin</string>
     <string name="isAdmin">¿Eres administrador?</string>
+    <string name="importar_contacto">Importar contacto</string>
 
-    <string name="nuevaCuenta">Crear Cuenta Nueva</string>
-    <string name="nombreUsu">Nombre Completo</string>
-    <string name="correoUsu">Correo Electrónico</string>
-    <string name="tlfSMS">Teléfono (Para alertas SMS)</string>
-    <string name="guardarReg">Guardar Usuario"</string>
+    <string name="nuevaCuenta">Crear cuenta nueva</string>
+    <string name="nombreUsu">Nombre completo</string>
+    <string name="correoUsu">Correo electrónico</string>
+    <string name="tlfSMS">Teléfono para alertas SMS</string>
+    <string name="guardarReg">Guardar usuario</string>
 
+    <string name="detalle_director">Dirigida por: %1$s</string>
+    <string name="detalle_protagonista">Protagonista: %1$s</string>
+    <string name="detalle_antagonista">Antagonista: %1$s</string>
+    <string name="detalle_genero">Género: %1$s</string>
+    <string name="detalle_tipo">Tipo: %1$s</string>
+    <string name="detalle_fecha">Fecha de estreno: %1$s</string>
+    <string name="detalle_hora">Recordatorio: %1$s</string>
+    <string name="detalle_duracion">Duración: %1$d minutos</string>
+    <string name="detalle_favorita_si">Está en tu lista de favoritos</string>
+    <string name="detalle_favorita_no">No está en tu lista de favoritos</string>
+    <string name="detalle_vista_si">Has visto este contenido</string>
+    <string name="detalle_vista_no">No has visto este contenido</string>
+    <string name="detalle_nota">Valoración: %1$.1f/5</string>
+    <string name="detalle_sinopsis">Sinopsis: %1$s</string>
+
+    <string name="mapa_titulo">Mapa de rodajes y estrenos</string>
+    <string name="mapa_descripcion">Madrid: estreno recomendado\nBarcelona: ciclo de cine\nValencia: ruta de salas</string>
+    <string name="audio_descripcion">Guía rápida: registra tus películas y series, marca favoritos y consulta detalles desde la lista principal.</string>
+    <string name="reproducir">Reproducir</string>
+    <string name="pausar">Pausar</string>
+    <string name="detener">Detener</string>
+    <string name="recomendaciones_titulo">Recomendaciones</string>
+    <string name="recomendaciones_texto">Tus favoritos y pendientes se usan para preparar próximas recomendaciones.</string>
+
+    <string-array name="tipo_contenido">
+        <item>Película</item>
+        <item>Serie</item>
+    </string-array>
 
     <string-array name="orden_opciones">
-        <item>Título</item>
-        <item>Fecha</item>
-        <item>Puntuación</item>
+        <item>Todo</item>
+        <item>Películas</item>
+        <item>Series</item>
     </string-array>
 
     <string-array name="orden_valores">
-        <item>titulo</item>
-        <item>fecha</item>
-        <item>rating</item>
+        <item>todos</item>
+        <item>pelicula</item>
+        <item>serie</item>
+    </string-array>
+
+    <string-array name="tema_opciones">
+        <item>Sistema</item>
+        <item>Cine</item>
+        <item>Series</item>
+    </string-array>
+
+    <string-array name="tema_valores">
+        <item>sistema</item>
+        <item>cine</item>
+        <item>series</item>
     </string-array>
 </resources>

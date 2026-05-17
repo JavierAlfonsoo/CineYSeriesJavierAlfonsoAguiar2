@@ -1,21 +1,44 @@
-<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.preference.PreferenceCategory app:title="Apariencia">
         <androidx.preference.SwitchPreferenceCompat
             app:key="modo_oscuro"
-            app:title="Modo Oscuro"
+            app:title="Modo oscuro"
             app:summary="Cambia la aplicación a colores oscuros"
             app:defaultValue="false" />
+
+        <androidx.preference.ListPreference
+            app:key="tema_visual"
+            app:title="Tema visual"
+            app:entries="@array/tema_opciones"
+            app:entryValues="@array/tema_valores"
+            app:defaultValue="sistema"
+            app:useSimpleSummaryProvider="true" />
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory app:title="Contenido">
         <androidx.preference.ListPreference
             app:key="ordenar_por"
-            app:title="Ordenar lista de películas"
-            app:summary="Elige cómo ver tus películas"
+            app:title="Filtrar lista"
+            app:summary="Elige qué contenido ver"
             app:entries="@array/orden_opciones"
             app:entryValues="@array/orden_valores"
-            app:defaultValue="titulo"
+            app:defaultValue="todos"
+            app:useSimpleSummaryProvider="true" />
+
+        <androidx.preference.SeekBarPreference
+            app:key="min_rating"
+            app:title="Valoración mínima"
+            app:min="0"
+            android:max="5"
+            app:defaultValue="0"
+            app:showSeekBarValue="true" />
+
+        <androidx.preference.EditTextPreference
+            app:key="nombre_perfil"
+            app:title="Nombre visible"
+            app:summary="Nombre mostrado en el perfil de la aplicación"
             app:useSimpleSummaryProvider="true" />
     </androidx.preference.PreferenceCategory>
 

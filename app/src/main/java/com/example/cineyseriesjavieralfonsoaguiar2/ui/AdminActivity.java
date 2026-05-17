@@ -5,7 +5,6 @@ import android.app.NotificationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +16,7 @@ import com.example.cineyseriesjavieralfonsoaguiar2.bd.Usuario;
 
 import java.util.List;
 
-public class AdminActivity extends AppCompatActivity {
+public class AdminActivity extends BaseDrawerActivity {
 
     private RecyclerView recyclerView;
     private UsuariosAdapter adapter;
@@ -28,6 +27,7 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+        setDrawerTitle(R.string.panelAdmin);
 
         recyclerView = findViewById(R.id.rvUsers);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

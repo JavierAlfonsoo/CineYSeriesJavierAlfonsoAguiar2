@@ -13,5 +13,13 @@
             android:id="@+id/nav_acerca"
             android:title="@string/acercaDe"
             android:icon="@android:drawable/ic_menu_myplaces" />
+        <item
+            android:id="@+id/nav_mapa"
+            android:title="@string/mapa"
+            android:icon="@android:drawable/ic_dialog_map" />
+        <item
+            android:id="@+id/nav_volver"
+            android:title="@string/volver"
+            android:icon="@android:drawable/ic_media_previous" />
     </group>
 </menu>

@@ -48,7 +48,17 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/txtTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
             android:id="@+id/txtFechaEstreno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtHora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -71,5 +81,11 @@
             android:id="@+id/txtNota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtSinopsis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" />
     </LinearLayout>
 </ScrollView>

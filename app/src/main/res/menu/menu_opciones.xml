@@ -10,7 +10,13 @@
 
     <item
         android:id="@+id/action_settings"
-        android:title="Ajustes"
+        android:title="@string/ajustes"
         android:icon="@android:drawable/ic_menu_preferences"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_audio"
+        android:title="@string/audio_guia"
+        android:icon="@android:drawable/ic_btn_speak_now"
         app:showAsAction="never" />
 </menu>

@@ -52,12 +52,27 @@
             android:hint="@string/genero"
             android:inputType="text" />
 
+        <Spinner
+            android:id="@+id/sp_tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
         <EditText
             android:id="@+id/et_fecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/fecha"
-            android:inputType="date" />
+            android:focusable="false"
+            android:inputType="none" />
+
+        <EditText
+            android:id="@+id/et_hora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hora_recordatorio"
+            android:focusable="false"
+            android:inputType="none" />
 
         <EditText
             android:id="@+id/et_duracion"
@@ -65,6 +80,30 @@
             android:layout_height="wrap_content"
             android:hint="@string/duracion"
             android:inputType="number" />
+
+        <EditText
+            android:id="@+id/et_sinopsis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/sinopsis"
+            android:inputType="textMultiLine"
+            android:minLines="3" />
+
+        <ImageView
+            android:id="@+id/img_preview"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/foto_contenido"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground" />
+
+        <Button
+            android:id="@+id/btn_seleccionar_imagen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/seleccionar_imagen" />
 
         <TextView
             android:layout_width="wrap_content"
