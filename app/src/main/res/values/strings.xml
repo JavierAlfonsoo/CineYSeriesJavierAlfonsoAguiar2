@@ -10,7 +10,7 @@
     <string name="volver">Volver</string>
     <string name="ajustes">Ajustes</string>
     <string name="mapa">Mapa de estrenos</string>
-    <string name="audio_guia">Guía de audio</string>
+    <string name="audio_guia">Música de la app</string>
     <string name="ver_video">Ver vídeo presentación</string>
     <string name="acercaDeTexto">Aplicación creada por Javier Alfonso Aguiar</string>
     <string name="ayudaTexto1">Pulsa una película o serie para ver sus detalles.</string>
@@ -74,7 +74,7 @@
 
     <string name="mapa_titulo">Mapa de rodajes y estrenos</string>
     <string name="mapa_descripcion">Madrid: estreno recomendado\nBarcelona: ciclo de cine\nValencia: ruta de salas</string>
-    <string name="audio_descripcion">Guía rápida: registra tus películas y series, marca favoritos y consulta detalles desde la lista principal.</string>
+    <string name="audio_descripcion">Reproduce la música asociada a la aplicación de cine y series.</string>
     <string name="reproducir">Reproducir</string>
     <string name="pausar">Pausar</string>
     <string name="detener">Detener</string>

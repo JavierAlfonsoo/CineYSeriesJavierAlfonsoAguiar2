@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:title="@string/titulo"
-            android:titleTextColor="@android:color/white">
+            android:titleTextColor="@color/app_on_primary">
 
             <Button
                 android:id="@+id/btnAdminPanel"

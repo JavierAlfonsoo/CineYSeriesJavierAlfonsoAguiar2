@@ -97,7 +97,7 @@
             android:layout_marginTop="16dp"
             android:contentDescription="@string/foto_contenido"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_foreground" />
+            android:src="@drawable/palomitas_logo" />
 
         <Button
             android:id="@+id/btn_seleccionar_imagen"

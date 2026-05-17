@@ -138,7 +138,7 @@ public class NuevaPeliculaActivity extends BaseDrawerActivity {
                 cbVista.isChecked(),
                 cbFavorito.isChecked(),
                 rbNota.getRating(),
-                R.drawable.ic_launcher_foreground,
+                R.drawable.palomitas_logo,
                 imagenSeleccionadaUri);
 
         db.appDao().insertPelicula(nuevaPelicula);

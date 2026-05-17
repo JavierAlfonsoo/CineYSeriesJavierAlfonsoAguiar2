@@ -10,7 +10,7 @@
     <string name="volver">Back</string>
     <string name="ajustes">Settings</string>
     <string name="mapa">Premiere map</string>
-    <string name="audio_guia">Audio guide</string>
+    <string name="audio_guia">App music</string>
     <string name="ver_video">Watch intro video</string>
     <string name="acercaDeTexto">Application created by Javier Alfonso Aguiar</string>
     <string name="ayudaTexto1">Tap a movie or series to view details.</string>
@@ -69,7 +69,7 @@
     <string name="detalle_sinopsis">Synopsis: %1$s</string>
     <string name="mapa_titulo">Filming and premiere map</string>
     <string name="mapa_descripcion">Madrid: recommended premiere\nBarcelona: film cycle\nValencia: cinema route</string>
-    <string name="audio_descripcion">Quick guide: save movies and series, mark favorites, and check details from the main list.</string>
+    <string name="audio_descripcion">Play the music associated with the movies and series app.</string>
     <string name="reproducir">Play</string>
     <string name="pausar">Pause</string>
     <string name="detener">Stop</string>
