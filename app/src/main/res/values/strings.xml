@@ -81,6 +81,15 @@
     <string name="recomendaciones_titulo">Recomendaciones</string>
     <string name="recomendaciones_texto">Tus favoritos y pendientes se usan para preparar próximas recomendaciones.</string>
 
+    <string name="buscar_recomendaciones">Buscar recomendaciones online</string>
+    <string name="texto_busqueda">Titulo o genero</string>
+    <string name="buscar">Buscar</string>
+    <string name="sin_resultados">No se encontraron recomendaciones</string>
+    <string name="error_retrofit">No se pudieron cargar las recomendaciones</string>
+    <string name="anadir_lista">Anadir a mi lista</string>
+    <string name="recomendacion_anadida">Recomendacion guardada en tu lista</string>
+    <string name="fuente_tvmaze">Fuente: TVMaze mediante Retrofit</string>
+
     <string-array name="tipo_contenido">
         <item>Película</item>
         <item>Serie</item>

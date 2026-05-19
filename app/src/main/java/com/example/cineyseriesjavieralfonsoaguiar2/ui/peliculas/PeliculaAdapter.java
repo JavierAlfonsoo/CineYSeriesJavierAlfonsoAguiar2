@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.cineyseriesjavieralfonsoaguiar2.R;
 import com.example.cineyseriesjavieralfonsoaguiar2.data.entities.Pelicula;
 
@@ -59,7 +60,11 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         Pelicula peli = listaPelis.get(position);
         if (peli.imagenUri != null && !peli.imagenUri.isEmpty()) {
-            holder.imgPeli.setImageURI(Uri.parse(peli.imagenUri));
+            Glide.with(context)
+                    .load(Uri.parse(peli.imagenUri))
+                    .placeholder(peli.imagenResId)
+                    .error(peli.imagenResId)
+                    .into(holder.imgPeli);
         } else {
             holder.imgPeli.setImageResource(peli.imagenResId);
         }

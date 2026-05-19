@@ -3,19 +3,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="16dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/recomendaciones_titulo"
-        android:textSize="24sp"
+        android:text="@string/buscar_recomendaciones"
+        android:textSize="22sp"
         android:textStyle="bold" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/recomendaciones_texto"
-        android:textSize="16sp" />
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etBusquedaRecomendaciones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/texto_busqueda"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnBuscarRecomendaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/buscar" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvEstadoRecomendaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/fuente_tvmaze"
+        android:textSize="13sp" />
+
+    <ProgressBar
+        android:id="@+id/progressRecomendaciones"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecomendaciones"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1" />
 </LinearLayout>

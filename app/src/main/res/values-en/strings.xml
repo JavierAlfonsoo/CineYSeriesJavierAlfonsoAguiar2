@@ -75,6 +75,14 @@
     <string name="detener">Stop</string>
     <string name="recomendaciones_titulo">Recommendations</string>
     <string name="recomendaciones_texto">Favorites and pending titles are used to prepare recommendations.</string>
+    <string name="buscar_recomendaciones">Search online recommendations</string>
+    <string name="texto_busqueda">Title or genre</string>
+    <string name="buscar">Search</string>
+    <string name="sin_resultados">No recommendations found</string>
+    <string name="error_retrofit">Recommendations could not be loaded</string>
+    <string name="anadir_lista">Add to my list</string>
+    <string name="recomendacion_anadida">Recommendation saved to your list</string>
+    <string name="fuente_tvmaze">Source: TVMaze using Retrofit</string>
     <string-array name="tipo_contenido"><item>Movie</item><item>Series</item></string-array>
     <string-array name="orden_opciones"><item>All</item><item>Movies</item><item>Series</item></string-array>
     <string-array name="orden_valores"><item>todos</item><item>pelicula</item><item>serie</item></string-array>

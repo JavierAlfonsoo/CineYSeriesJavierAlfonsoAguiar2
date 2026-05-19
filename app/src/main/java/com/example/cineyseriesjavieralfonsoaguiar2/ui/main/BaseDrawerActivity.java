@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.LayoutRes;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.cineyseriesjavieralfonsoaguiar2.R;
@@ -59,7 +61,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         DrawerLayout.LayoutParams navParams = new DrawerLayout.LayoutParams(
                 DrawerLayout.LayoutParams.WRAP_CONTENT,
                 DrawerLayout.LayoutParams.MATCH_PARENT);
-        navParams.gravity = android.view.Gravity.START;
+        navParams.gravity = GravityCompat.START;
         drawerLayout.addView(navigationView, navParams);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
@@ -84,6 +86,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
             return true;
         });
 
+        configurarBotonAtras();
         super.setContentView(drawerLayout);
     }
 
@@ -101,13 +104,18 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
         startActivity(new Intent(this, destino));
     }
 
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout != null && drawerLayout.isDrawerOpen(android.view.Gravity.START)) {
-            drawerLayout.closeDrawers();
-        } else {
-            super.onBackPressed();
-        }
+    private void configurarBotonAtras() {
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (drawerLayout != null && drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawers();
+                    return;
+                }
+                setEnabled(false);
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        });
     }
 }
 

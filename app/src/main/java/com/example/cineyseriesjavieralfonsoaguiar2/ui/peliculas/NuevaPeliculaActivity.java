@@ -156,9 +156,11 @@ public class NuevaPeliculaActivity extends BaseDrawerActivity {
                 Toast.makeText(this, R.string.imagen_no_disponible, Toast.LENGTH_SHORT).show();
                 return;
             }
-            int flags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION;
+            int flags = Intent.FLAG_GRANT_READ_URI_PERMISSION;
             try {
-                getContentResolver().takePersistableUriPermission(uri, flags);
+                if ((data.getFlags() & flags) == flags) {
+                    getContentResolver().takePersistableUriPermission(uri, flags);
+                }
             } catch (SecurityException ignored) {
                 // Algunas apps no ofrecen permiso persistente; la vista previa sigue funcionando en la sesion actual.
             }
