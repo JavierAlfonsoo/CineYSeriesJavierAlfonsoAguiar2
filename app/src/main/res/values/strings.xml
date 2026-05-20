@@ -11,7 +11,7 @@
     <string name="ajustes">Ajustes</string>
     <string name="mapa">Mapa de estrenos</string>
     <string name="audio_guia">Música de la app</string>
-    <string name="ver_video">Ver vídeo presentación</string>
+    <string name="ver_video">Reproducir video</string>
     <string name="acercaDeTexto">Aplicación creada por Javier Alfonso Aguiar</string>
     <string name="ayudaTexto1">Pulsa una película o serie para ver sus detalles.</string>
     <string name="ayudaTexto2">Mantén pulsado un elemento para abrir acciones contextuales.</string>
