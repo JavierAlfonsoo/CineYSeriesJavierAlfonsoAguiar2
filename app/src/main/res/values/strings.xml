@@ -43,7 +43,7 @@
     <string name="confirmar_borrado">Confirmar borrado</string>
     <string name="confirmar_borrado_mensaje">¿Quieres eliminar %1$s?</string>
 
-    <string name="login">Iniciar sesión</string>
+    <string name="iniciarSesion">Iniciar sesión</string>
     <string name="registrarse">Registrarse</string>
     <string name="correo">Correo electrónico</string>
     <string name="contrasenia">Contraseña</string>
@@ -74,20 +74,27 @@
 
     <string name="mapa_titulo">Mapa de rodajes y estrenos</string>
     <string name="mapa_descripcion">Madrid: estreno recomendado\nBarcelona: ciclo de cine\nValencia: ruta de salas</string>
+    <string name="mapa_permiso_denegado">Sin permiso de ubicacion, se muestran solo los marcadores.</string>
+    <string name="mapa_ruta">Abriendo ruta hacia %1$s</string>
+    <string name="mapa_cine_madrid">Cine Callao Madrid</string>
+    <string name="mapa_cine_barcelona">Cines Verdi Barcelona</string>
+    <string name="mapa_cine_valencia">Cines Lys Valencia</string>
     <string name="audio_descripcion">Reproduce la música asociada a la aplicación de cine y series.</string>
     <string name="reproducir">Reproducir</string>
     <string name="pausar">Pausar</string>
+    <string name="retroceder_5">-5 s</string>
+    <string name="adelantar_5">+5 s</string>
     <string name="detener">Detener</string>
     <string name="recomendaciones_titulo">Recomendaciones</string>
     <string name="recomendaciones_texto">Tus favoritos y pendientes se usan para preparar próximas recomendaciones.</string>
 
     <string name="buscar_recomendaciones">Buscar recomendaciones online</string>
-    <string name="texto_busqueda">Titulo o genero</string>
+    <string name="texto_busqueda">Título o género</string>
     <string name="buscar">Buscar</string>
     <string name="sin_resultados">No se encontraron recomendaciones</string>
     <string name="error_retrofit">No se pudieron cargar las recomendaciones</string>
-    <string name="anadir_lista">Anadir a mi lista</string>
-    <string name="recomendacion_anadida">Recomendacion guardada en tu lista</string>
+    <string name="anadir_lista">Áñadir a mi lista</string>
+    <string name="recomendacion_anadida">Recomendación guardada en tu lista</string>
     <string name="fuente_tvmaze">Fuente: TVMaze mediante Retrofit</string>
 
     <string-array name="tipo_contenido">

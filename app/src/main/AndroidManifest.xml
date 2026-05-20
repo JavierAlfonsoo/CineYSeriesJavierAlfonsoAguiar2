@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -20,8 +22,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CineYSeriesJavierAlfonsoAguiar2">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
         <activity
-            android:name=".ui.splash.SplashActivity"
+            android:name=".interfaz.inicio.ActividadInicio"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,27 +35,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.settings.ActivityPreferencias"
+            android:name=".interfaz.ajustes.ActividadPreferencias"
             android:label="Ajustes"
-            android:parentActivityName=".ui.main.MainActivity" />
+            android:parentActivityName=".interfaz.principal.ActividadPrincipal" />
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".interfaz.principal.ActividadPrincipal"
             android:exported="true"/>
-        <activity android:name=".ui.main.AudioGuideActivity"/>
-        <activity android:name=".ui.maps.MapaActivity"/>
-        <activity android:name=".ui.peliculas.RecomendacionesActivity"/>
-        <activity android:name=".ui.main.VideoActivity"/>
-        <activity android:name=".ui.main.AcercaDeActivity"/>
-        <activity android:name=".ui.peliculas.DetallesPeliActivity"/>
-        <activity android:name=".ui.main.AyudaActivity"/>
-        <activity android:name=".ui.peliculas.NuevaPeliculaActivity"/>
-        <activity android:name=".ui.admin.AdminActivity"/>
+        <activity android:name=".interfaz.principal.ActividadGuiaAudio"/>
+        <activity android:name=".interfaz.mapas.ActividadMapa"/>
+        <activity android:name=".interfaz.peliculas.ActividadRecomendaciones"/>
+        <activity android:name=".interfaz.principal.ActividadVideo"/>
+        <activity android:name=".interfaz.principal.ActividadAcercaDe"/>
+        <activity android:name=".interfaz.peliculas.ActividadDetallesPeli"/>
+        <activity android:name=".interfaz.principal.ActividadAyuda"/>
+        <activity android:name=".interfaz.peliculas.ActividadNuevaPelicula"/>
+        <activity android:name=".interfaz.admin.ActividadAdmin"/>
         <activity
-            android:name=".ui.auth.LoginActivity"
+            android:name=".interfaz.autenticacion.ActividadLogin"
             android:exported="false" />
-        <activity android:name=".ui.auth.ActivityRegistro" android:parentActivityName=".ui.auth.LoginActivity"/>
+        <activity android:name=".interfaz.autenticacion.ActividadRegistro" android:parentActivityName=".interfaz.autenticacion.ActividadLogin"/>
         <service
-            android:name=".ui.service.BatterySmsService"
+            android:name=".interfaz.servicio.ServicioSmsBateria"
             android:exported="false" />
     </application>
 
